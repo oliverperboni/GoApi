@@ -9,13 +9,13 @@ func initializeRouter(r *gin.Engine) {
 
 	v1 := r.Group("/api/v1/")
 	{
-		v1.GET("/ping", handler.GetOpeningHandler)
+		v1.GET("/book", handler.GetBooksHandler)
 
-		v1.POST("/ping", handler.PostOpeningHandler)
+		v1.POST("/book", handler.PostBooksHandler)
 
-		v1.PUT("/ping", handler.PutOpeningHandler)
+		v1.PUT("/book", handler.PutBooksHandler)
 
-		v1.DELETE("/ping", handler.DeleteOpeningHandler)
+		v1.DELETE("/book", handler.DeleteBooksHandler)
 
 	}
 }

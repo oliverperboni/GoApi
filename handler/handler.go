@@ -2,15 +2,15 @@ package handler
 
 import "github.com/gin-gonic/gin"
 
-func GetOpeningHandler(ctx *gin.Context) {
+func GetBooksHandler(ctx *gin.Context) {
 
 }
-func PostOpeningHandler(ctx *gin.Context) {
+func PostBooksHandler(ctx *gin.Context) {
 
 }
-func DeleteOpeningHandler(ctx *gin.Context) {
+func DeleteBooksHandler(ctx *gin.Context) {
 
 }
-func PutOpeningHandler(ctx *gin.Context) {
+func PutBooksHandler(ctx *gin.Context) {
 
 }
