@@ -28,6 +28,11 @@ func (r *BookRepositoryImpl) GetBookByName(name string) (*schemas.Book, error) {
 	err := r.DB.First(&book, "name = ?", name).Error
 	return &book, err
 }
+func (r *BookRepositoryImpl) GetBooks() ([]schemas.Book, error) {
+	var books []schemas.Book
+	err := r.DB.Find(&books).Error
+	return books, err
+}
 
 func (r *BookRepositoryImpl) UpdateBook(book *schemas.Book) error {
 	return r.DB.Save(book).Error

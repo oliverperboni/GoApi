@@ -5,17 +5,17 @@ import (
 	"github.com/oliverperboni/GoApi/handler"
 )
 
-func initializeRouter(r *gin.Engine) {
+func initializeRouter(r *gin.Engine, b *handler.BookController) {
 
 	v1 := r.Group("/api/v1/")
 	{
-		v1.GET("/book", handler.GetBooksHandler)
+		v1.GET("/book", b.GetBooks)
 
-		v1.POST("/book", handler.PostBooksHandler)
+		v1.POST("/book", b.CreateBook)
 
-		v1.PUT("/book", handler.PutBooksHandler)
+		v1.PUT("/book", b.UpdateBook)
 
-		v1.DELETE("/book", handler.DeleteBooksHandler)
+		v1.DELETE("/book", b.DeleteBook)
 
 	}
 }

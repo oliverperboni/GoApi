@@ -17,6 +17,9 @@ func (s *BookService) CreateBook(user *schemas.Book) error {
 func (s *BookService) GetBookByID(id uint) (*schemas.Book, error) {
 	return s.Repo.GetBookByID(id)
 }
+func (s *BookService) GetBooks() ([]schemas.Book, error) {
+	return s.Repo.GetBooks()
+}
 
 func (s *BookService) GetBookByName(name string) (*schemas.Book, error) {
 	return s.Repo.GetBookByName(name)

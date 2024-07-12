@@ -21,4 +21,5 @@ type BookRepository interface {
 	GetBookByName(name string) (*Book, error)
 	UpdateBook(book *Book) error
 	DeleteBook(id uint) error
+	GetBooks() ([]Book, error)
 }
