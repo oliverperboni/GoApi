@@ -14,3 +14,11 @@ type BookResponse struct {
 	Genre  string `json:"genre"`
 	Pages  int    `json:"pages"`
 }
+
+type BookRepository interface {
+	CreateBook(book *Book) error
+	GetBookByID(id uint) (*Book, error)
+	GetBookByName(name string) (*Book, error)
+	UpdateBook(book *Book) error
+	DeleteBook(id uint) error
+}
