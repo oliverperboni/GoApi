@@ -8,4 +8,5 @@ import (
 func main() {
 	router.Initialize()
 	config.ConnectDatabase()
+
 }
