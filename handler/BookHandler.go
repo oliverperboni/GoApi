@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -32,8 +31,34 @@ func (h *BookHadler) PostBook(c *gin.Context) {
 		return
 	}
 
-	fmt.Println("debug 3")
 	c.JSON(http.StatusOK, gin.H{
 		"message": "your book was created :)",
 	})
+}
+
+func (h *BookHadler) GetBook(c *gin.Context) {
+	var book []schemas.Book
+	book, err := h.service.Repo.GetBooks()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, book)
+
+}
+func (h *BookHadler) GetBookById(c *gin.Context) {
+	//get the id param
+
+}
+func (h *BookHadler) GetBookByName(c *gin.Context) {
+	//get the name param
+}
+func (h *BookHadler) PutBook(c *gin.Context) {
+	//get the book from the body
+
+}
+func (h *BookHadler) DeleteBook(c *gin.Context) {
+	//get the book from the body
+
 }

@@ -7,6 +7,7 @@ type Book struct {
 	Genre  string
 	Pages  int
 }
+
 type BookResponse struct {
 	Id     uint   `json:"id"`
 	Name   string `json:"name"`
