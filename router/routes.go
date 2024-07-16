@@ -13,7 +13,7 @@ func initializeRouter(r *gin.Engine, h *handler.BookHadler) {
 
 		v1.GET("/book/id/:id", h.GetBookById)
 
-		v1.GET("/book/name/:name", h.GetBookById)
+		v1.GET("/book/name/:name", h.GetBookByName)
 
 		v1.POST("/book", h.PostBook)
 

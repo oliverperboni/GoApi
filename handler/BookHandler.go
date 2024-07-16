@@ -66,6 +66,16 @@ func (h *BookHadler) GetBookById(c *gin.Context) {
 }
 func (h *BookHadler) GetBookByName(c *gin.Context) {
 	//get the name param
+	name := c.Param("name")
+
+	book, err := h.service.Repo.GetBookByName(name)
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, book)
 }
 func (h *BookHadler) PutBook(c *gin.Context) {
 	//get the book from the body
