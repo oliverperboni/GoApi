@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/oliverperboni/GoApi/schemas"
@@ -49,6 +50,18 @@ func (h *BookHadler) GetBook(c *gin.Context) {
 }
 func (h *BookHadler) GetBookById(c *gin.Context) {
 	//get the id param
+
+	str := c.Param("id")
+	id, _ := strconv.Atoi(str)
+	bookID := uint(id)
+	book, err := h.service.Repo.GetBookByID(bookID)
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, book)
 
 }
 func (h *BookHadler) GetBookByName(c *gin.Context) {
