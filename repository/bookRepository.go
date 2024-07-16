@@ -35,7 +35,7 @@ func (r *BookRepository) UpdateBook(book *schemas.Book) error {
 }
 
 func (r *BookRepository) DeleteBook(book *schemas.Book) error {
-	return r.DB.Delete(&book).Error
+	return r.DB.Delete(&book).Where("id=?", book.Id).Error
 }
 
 func (r *BookRepository) GetBooks() ([]schemas.Book, error) {

@@ -78,10 +78,40 @@ func (h *BookHadler) GetBookByName(c *gin.Context) {
 	c.JSON(http.StatusOK, book)
 }
 func (h *BookHadler) PutBook(c *gin.Context) {
-	//get the book from the body
+	var bookJSON schemas.Book
+	if err := c.ShouldBindJSON(&bookJSON); err != nil {
+		// Handle JSON binding error
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if createErr := h.service.Repo.UpdateBook(&bookJSON); createErr != nil {
+		// Handle error from service.PostBook
+		c.JSON(http.StatusInternalServerError, gin.H{"error": createErr.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "your book was updated :)",
+	})
 
 }
 func (h *BookHadler) DeleteBook(c *gin.Context) {
-	//get the book from the body
+	var bookJSON schemas.Book
+	if err := c.ShouldBindJSON(&bookJSON); err != nil {
+		// Handle JSON binding error
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if createErr := h.service.Repo.DeleteBook(&bookJSON); createErr != nil {
+		// Handle error from service.PostBook
+		c.JSON(http.StatusInternalServerError, gin.H{"error": createErr.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "your book was deleted:)",
+	})
 
 }
