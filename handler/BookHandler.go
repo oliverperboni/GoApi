@@ -39,7 +39,7 @@ func (h *BookHadler) PostBook(c *gin.Context) {
 
 func (h *BookHadler) GetBook(c *gin.Context) {
 	var book []schemas.Book
-	book, err := h.service.Repo.GetBooks()
+	book, err := h.service.GetBooks()
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -54,7 +54,7 @@ func (h *BookHadler) GetBookById(c *gin.Context) {
 	str := c.Param("id")
 	id, _ := strconv.Atoi(str)
 	bookID := uint(id)
-	book, err := h.service.Repo.GetBookByID(bookID)
+	book, err := h.service.GetBookByID(bookID)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -68,7 +68,7 @@ func (h *BookHadler) GetBookByName(c *gin.Context) {
 	//get the name param
 	name := c.Param("name")
 
-	book, err := h.service.Repo.GetBookByName(name)
+	book, err := h.service.GetBookByName(name)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -85,7 +85,7 @@ func (h *BookHadler) PutBook(c *gin.Context) {
 		return
 	}
 
-	if createErr := h.service.Repo.UpdateBook(&bookJSON); createErr != nil {
+	if createErr := h.service.UpdateBook(&bookJSON); createErr != nil {
 		// Handle error from service.PostBook
 		c.JSON(http.StatusInternalServerError, gin.H{"error": createErr.Error()})
 		return
@@ -104,7 +104,7 @@ func (h *BookHadler) DeleteBook(c *gin.Context) {
 		return
 	}
 
-	if createErr := h.service.Repo.DeleteBook(&bookJSON); createErr != nil {
+	if createErr := h.service.DeleteBook(&bookJSON); createErr != nil {
 		// Handle error from service.PostBook
 		c.JSON(http.StatusInternalServerError, gin.H{"error": createErr.Error()})
 		return

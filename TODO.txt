@@ -1,0 +1,3 @@
+-Melhorar Schemas Books para ter Data de Update
+-Schemas novas tabelas de lista
+

@@ -43,10 +43,3 @@ func (r *BookRepository) GetBooks() ([]schemas.Book, error) {
 	err := r.DB.Find(&books).Error
 	return books, err
 }
-
-// CreateBook(book *schemas.Book) error
-// 	GetBookByID(id uint) (*schemas.Book, error)
-// 	GetBookByName(name string) (*schemas.Book, error)
-// 	UpdateBook(book *schemas.Book) error
-// 	DeleteBook(id uint) error
-// 	GetBooks() ([]schemas.Book, error)

@@ -6,13 +6,33 @@ import (
 )
 
 type BookService struct {
-	Repo repository.BookRepository
+	repo repository.BookRepository
 }
 
 func CreateBookService(r repository.BookRepository) *BookService {
-	return &BookService{Repo: r}
+	return &BookService{repo: r}
 }
 
 func (s *BookService) PostBook(b schemas.Book) error {
-	return s.Repo.CreateBook(&b)
+	return s.repo.CreateBook(&b)
+}
+
+func (s *BookService) GetBooks() ([]schemas.Book, error) {
+	return s.repo.GetBooks()
+}
+
+func (s *BookService) GetBookByID(id uint) (*schemas.Book, error) {
+	return s.repo.GetBookByID(id)
+}
+
+func (s *BookService) GetBookByName(name string) (*schemas.Book, error) {
+	return s.repo.GetBookByName(name)
+}
+
+func (s *BookService) UpdateBook(b *schemas.Book) error {
+	return s.repo.UpdateBook(b)
+}
+
+func (s *BookService) DeleteBook(b *schemas.Book) error {
+	return s.repo.DeleteBook(b)
 }

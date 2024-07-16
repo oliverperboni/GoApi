@@ -1,0 +1,86 @@
+### Funcionalidades Básicas
+
+- [ ] Gerenciamento de Livros
+  - [X] Adicionar livros
+  - [X] Editar livros
+  - [X] Excluir livros
+  - [X] Atribuir informações aos livros (título, autor, gênero, data de publicação, sinopse)
+  - [ ] Marcar livros como lidos, não lidos, ou em leitura
+
+- [ ] Visualização de Livros
+  - [ ] Exibir livros em uma lista
+  - [ ] Exibir livros em visualização de grade
+  - [ ] Filtrar livros por título
+  - [ ] Filtrar livros por autor
+  - [ ] Filtrar livros por gênero
+  - [ ] Filtrar livros por status de leitura
+  - [ ] Ordenar livros por título
+  - [ ] Ordenar livros por autor
+  - [ ] Ordenar livros por gênero
+  - [ ] Ordenar livros por status de leitura
+  - [ ] Pesquisar livros por palavras-chave
+
+- [ ] Detalhes do Livro
+  - [ ] Exibir detalhes completos do livro selecionado
+  - [ ] Exibir capa do livro
+  - [ ] Permitir adição de notas pessoais
+  - [ ] Permitir adição de resenhas pessoais
+
+### Funcionalidades Avançadas
+
+- [ ] Classificação e Avaliações
+  - [ ] Permitir que o usuário atribua uma classificação (1 a 5 estrelas) aos livros
+  - [ ] Adicionar resenhas e comentários pessoais aos livros
+
+- [ ] Listas Personalizadas
+  - [ ] Criar listas personalizadas de livros (e.g., favoritos, desejados, recomendações)
+  - [ ] Gerenciar listas personalizadas de livros
+  - [ ] Adicionar livros a várias listas
+
+- [ ] Relatórios e Estatísticas
+  - [ ] Gerar relatórios sobre livros lidos
+  - [ ] Gerar relatórios sobre gêneros mais lidos
+  - [ ] Gerar relatórios sobre autores mais lidos
+  - [ ] Visualizar gráficos de progresso de leitura ao longo do tempo
+
+- [ ] Recomendações de Leitura
+  - [ ] Algoritmo simples de recomendação baseado em livros lidos e avaliados
+  - [ ] Recomendar livros similares com base em gênero e autor
+
+- [ ] Autenticação e Segurança
+  - [ ] Sistema de login de usuários com autenticação segura (e.g., JWT, OAuth)
+  - [ ] Sistema de registro de usuários com autenticação segura (e.g., JWT, OAuth)
+  - [ ] Criptografia de dados sensíveis
+
+### Tecnologiasos
+
+### Estrutura Geral do Projeto
+
+- [ ] Frontend
+  - [ ] Páginas
+    - [ ] Dashboard
+    - [ ] Lista de Livros
+    - [ ] Adicionar/Editar Livro
+    - [ ] Detalhes do Livro
+    - [ ] Listas Personalizadas
+    - [ ] Relatórios
+    - [ ] Configurações
+    - [ ] Login/Registro
+  - [ ] Componentes
+    - [ ] Tabela/Grade de Livros
+    - [ ] Formulário de Livro
+    - [ ] Detalhes do Livro
+    - [ ] Widgets de Dashboard
+    - [ ] Modal de Configurações
+
+- [ ] Backend
+  - [ ] Endpoints
+    - [ ] `/auth`: Login, registro, autenticação de usuários
+    - [X] `/books`: CRUD de livros
+    - [ ] `/lists`: Gestão de listas personalizadas
+    - [ ] `/reports`: Geração de relatórios e estatísticas
+    - [ ] `/settings`: Configurações do usuário
+  - [ ] Serviços
+    - [ ] Serviço de livros
+    - [ ] Serviço de listas
+    - [ ] Serviço de relatórios
