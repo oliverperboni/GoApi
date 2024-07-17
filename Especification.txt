@@ -1,11 +1,11 @@
 ### Funcionalidades Básicas
 
-- [ ] Gerenciamento de Livros
+- [X] Gerenciamento de Livros
   - [X] Adicionar livros
   - [X] Editar livros
   - [X] Excluir livros
   - [X] Atribuir informações aos livros (título, autor, gênero, data de publicação, sinopse)
-  - [ ] Marcar livros como lidos, não lidos, ou em leitura
+  - [X] Marcar livros como lidos, não lidos, ou em leitura
 
 - [ ] Visualização de Livros
   - [ ] Exibir livros em uma lista

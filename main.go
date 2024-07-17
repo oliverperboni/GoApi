@@ -12,7 +12,7 @@ func main() {
 
 	config.ConnectDatabase()
 
-	bookRepository := repository.CreateBookRepository(config.GetDB())
+	bookRepository := repository.CreateBookRepository(config.GetDB()	)
 	bookService := services.CreateBookService(bookRepository) // Adjust as per your service structure
 	bookHandler := handler.CreateBookHandler(bookService)     // Assuming a constructor function NewBookHandler
 
