@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/oliverperboni/GoApi/schemas"
 	"github.com/oliverperboni/GoApi/services"
+	"github.com/oliverperboni/GoApi/utils"
 )
 
 type BookHadler struct {
@@ -38,14 +39,20 @@ func (h *BookHadler) PostBook(c *gin.Context) {
 }
 
 func (h *BookHadler) GetBook(c *gin.Context) {
-	var book []schemas.Book
-	book, err := h.service.GetBooks()
+	var books []schemas.Book
+	var booksJSON []schemas.BookJSON
+	books, err := h.service.GetBooks()
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, book)
+	for _, book := range books {
+		booksJSON = append(booksJSON, utils.BookConvert(book))
+
+	}
+
+	c.JSON(http.StatusOK, booksJSON)
 
 }
 func (h *BookHadler) GetBookById(c *gin.Context) {
@@ -60,8 +67,9 @@ func (h *BookHadler) GetBookById(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	bookJSON := utils.BookConvert(*book)
 
-	c.JSON(http.StatusOK, book)
+	c.JSON(http.StatusOK, bookJSON)
 
 }
 func (h *BookHadler) GetBookByName(c *gin.Context) {
@@ -75,7 +83,9 @@ func (h *BookHadler) GetBookByName(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, book)
+	bookJSON := utils.BookConvert(*book)
+
+	c.JSON(http.StatusOK, bookJSON)
 }
 func (h *BookHadler) PutBook(c *gin.Context) {
 	var bookJSON schemas.Book
