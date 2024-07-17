@@ -81,6 +81,6 @@
     - [ ] `/reports`: Geração de relatórios e estatísticas
     - [ ] `/settings`: Configurações do usuário
   - [ ] Serviços
-    - [ ] Serviço de livros
+    - [X] Serviço de livros
     - [ ] Serviço de listas
     - [ ] Serviço de relatórios
