@@ -2,7 +2,6 @@
 package config
 
 import (
-	"github.com/oliverperboni/GoApi/schemas"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -17,7 +16,7 @@ func ConnectDatabase() {
 		panic("failed to connect database")
 	}
 	//, &schemas.ListBook{}, &schemas.List{}, &schemas.ReadingStatistic{}, &schemas.Review{}, &schemas.User{}, &schemas.UserBook{})
-	db.AutoMigrate(&schemas.User{}, &schemas.Book{}, &schemas.UserBook{}, &schemas.List{}, &schemas.ListBook{}, &schemas.Review{}, &schemas.ReadingStatistic{})
+	//	db.AutoMigrate(&schemas.User{}, &schemas.Book{}, &schemas.UserBook{}, &schemas.List{}, &schemas.ListBook{}, &schemas.Review{}, &schemas.ReadingStatistic{})
 
 	DB = db
 }
