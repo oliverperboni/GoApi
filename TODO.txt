@@ -1,3 +1,9 @@
--Melhorar Schemas Books para ter Data de Update
--Schemas novas tabelas de lista
+Repo da list:
+    editar:
+        -colocar livro
+        -tirar livro 
+    -procurar livro na lista
+    -criar lista
+    -apargar lista
 
+Criar Dummy user
