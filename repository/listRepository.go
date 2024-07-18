@@ -28,16 +28,16 @@ func (l *ListRepository) AddBookToList(bookID uint, listID uint) error {
 	return l.DB.Create(listbook).Error
 }
 
-func (l *ListRepository) RemoveBookToList(bookId uint) error {
+func (l *ListRepository) RemoveBookToList(bookID uint, listID uint) error {
 	var listbook schemas.ListBook
-	l.DB.Find(&listbook, "BookID = ?", bookId)
+	l.DB.Where("BookID = ? AND ListID = ?", bookID, listID).Find(&listbook)
 	return l.DB.Delete(listbook).Error
 }
 
-func (l *ListRepository) SeachBookToList(bookId uint) (schemas.Book, error) {
+func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book, error) {
 	var listbook schemas.ListBook
 	var book schemas.Book
-	err := l.DB.Find(&listbook, "Id = ?", bookId).Error
+	err := l.DB.Where("BookID = ? AND ListID = ?", bookID, listID).Find(&listbook).Error
 	if err != nil {
 		return book, err
 	}
