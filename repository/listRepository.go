@@ -1,6 +1,6 @@
 package repository
 
-// TODO Implementations
+// TODO Tests
 import (
 	"time"
 
@@ -34,8 +34,21 @@ func (l *ListRepository) RemoveBookToList(bookId uint) error {
 	return l.DB.Delete(listbook).Error
 }
 
-func (l *ListRepository) SeachBookToList(bookId uint) schemas.Book {
-	return schemas.Book{}
+func (l *ListRepository) SeachBookToList(bookId uint) (schemas.Book, error) {
+	var listbook schemas.ListBook
+	var book schemas.Book
+	err := l.DB.Find(&listbook, "Id = ?", bookId).Error
+	if err != nil {
+		return book, err
+	}
+
+	err = l.DB.Find(&book, "Id = ?", listbook.BookID).Error
+
+	if err != nil {
+		return book, err
+	}
+
+	return book, err
 }
 
 func (l *ListRepository) DeleteList(list *schemas.List) error {
