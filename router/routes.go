@@ -9,17 +9,8 @@ func initializeRouter(r *gin.Engine, h *handler.BookHadler) {
 
 	v1 := r.Group("/api/v1/")
 	{
-		v1.GET("/book", h.GetBook)
+		setupBookRoutes(v1, h)
 
-		v1.GET("/book/id/:id", h.GetBookById)
-
-		v1.GET("/book/name/:name", h.GetBookByName)
-
-		v1.POST("/book", h.PostBook)
-
-		v1.PUT("/book", h.PutBook)
-
-		v1.DELETE("/book", h.DeleteBook)
-
+		setupListRoutes(v1, h)
 	}
 }
