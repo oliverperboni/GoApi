@@ -1,9 +1,7 @@
 Repo da list:
-    editar:
-        -colocar livro
-        -tirar livro 
-    -procurar livro na lista
-    -criar lista
-    -apargar lista
+    criar os handler
+    criar repo e services para pegar as listas do usuario 
+    criar os GETs das listas do user 
+
 
 Criar Dummy user

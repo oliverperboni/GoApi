@@ -51,6 +51,30 @@ func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book
 	return book, err
 }
 
+func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.ListBook, error) {
+
+	var listBook []schemas.ListBook
+	var list schemas.List
+
+	err := l.DB.Where("UserID = ? AND Id = ?", userID, listID).Find(&list).Error
+
+	if err != nil {
+		return listBook, err
+	}
+
+	err = l.DB.Find(&listBook, "listID = ?", list.ID).Error
+	if err != nil {
+		return listBook, err
+	}
+	return listBook, err
+}
+
+func (l *ListRepository) GetAllUserList(userID uint) (schemas.List, error) {
+	var list schemas.List
+	err := l.DB.Find(&list, "UserID = ?", userID).Error
+	return list, err
+}
+
 func (l *ListRepository) DeleteList(list *schemas.List) error {
 	return l.DB.Delete(list).Error
 }
