@@ -19,14 +19,14 @@ func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 	v.DELETE("/book", h.DeleteBook)
 }
 
-func setupListRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
-	v.POST("/lists")
+func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
+	v.POST("/lists",h.GetBookList)
 
-	v.DELETE("/lists")
+	v.DELETE("/lists",h.DeleteList)
 
-	v.DELETE("/list/:id/book/:id")
+	v.DELETE("/list/:id/book/:id",h.DeleteBookList)
 
 	v.GET("/list")
 
-	v.GET("/searchList/:id/book/:id")
+	v.GET("/searchList/:id/book/:id",h.GetBookList)
 }
