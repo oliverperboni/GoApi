@@ -21,10 +21,12 @@ func (l *ListRepository) CreateList(list *schemas.List) error {
 }
 
 func (l *ListRepository) AddBookToList(bookID uint, listID uint) error {
-	var listbook schemas.ListBook
-	listbook.BookID = bookID
-	listbook.ListID = listID
-	listbook.CreatedAt = time.Now()
+	listbook := &schemas.ListBook{
+		BookID:    bookID,
+		ListID:    listID,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
 	return l.DB.Create(listbook).Error
 }
 
@@ -51,18 +53,19 @@ func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book
 	return book, err
 }
 
+// Todo return []schemas.Book
 func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.ListBook, error) {
 
 	var listBook []schemas.ListBook
 	var list schemas.List
 
-	err := l.DB.Where("UserID = ? AND Id = ?", userID, listID).Find(&list).Error
+	err := l.DB.Where("User_ID = ? AND Id = ?", userID, listID).Find(&list).Error
 
 	if err != nil {
 		return listBook, err
 	}
 
-	err = l.DB.Find(&listBook, "listID = ?", list.ID).Error
+	err = l.DB.Find(&listBook, "list_ID = ?", list.ID).Error
 	if err != nil {
 		return listBook, err
 	}

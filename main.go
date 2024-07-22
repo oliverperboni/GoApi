@@ -12,10 +12,14 @@ func main() {
 
 	config.ConnectDatabase()
 
-	bookRepository := repository.CreateBookRepository(config.GetDB()	)
-	bookService := services.CreateBookService(bookRepository) // Adjust as per your service structure
-	bookHandler := handler.CreateBookHandler(bookService)     // Assuming a constructor function NewBookHandler
+	listRepository := repository.CreateListRepository(config.GetDB())
+	listService := services.CreateListService(listRepository)
+	listaHanlder := handler.CreateNewListHandler(listService)
 
-	router.Initialize(&bookHandler)
+	bookRepository := repository.CreateBookRepository(config.GetDB())
+	bookService := services.CreateBookService(bookRepository)
+	bookHandler := handler.CreateBookHandler(bookService)
+
+	router.Initialize(&bookHandler, &listaHanlder)
 
 }

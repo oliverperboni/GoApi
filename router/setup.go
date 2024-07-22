@@ -20,7 +20,9 @@ func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 }
 
 func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
-	v.POST("/lists",h.GetBookList)
+	v.POST("/lists",h.PostList)
+
+	v.POST("/lists/AddBook",h.PostBookList)
 
 	v.DELETE("/lists",h.DeleteList)
 
@@ -28,5 +30,5 @@ func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
 
 	v.GET("/list")
 
-	v.GET("/searchList/:id/book/:id",h.GetBookList)
+	v.GET("/list/allBooks",h.GetAllBookList)
 }

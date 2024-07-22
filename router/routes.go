@@ -5,12 +5,12 @@ import (
 	"github.com/oliverperboni/GoApi/handler"
 )
 
-func initializeRouter(r *gin.Engine, h *handler.BookHadler) {
+func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler) {
 
 	v1 := r.Group("/api/v1/")
 	{
 		setupBookRoutes(v1, h)
 
-		setupListRoutes(v1, h)
+		setupListRoutes(v1, l)
 	}
 }
