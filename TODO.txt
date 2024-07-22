@@ -1,7 +1,10 @@
 Repo da list:
-    criar os handler
-    criar repo e services para pegar as listas do usuario 
-    criar os GETs das listas do user 
+   criar os handlers e ver se esta funcionando
 
 
-Criar Dummy user
+
+
+User:
+    login endpoint
+    simple login
+    jwt-token
