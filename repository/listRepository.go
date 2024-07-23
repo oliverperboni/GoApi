@@ -54,22 +54,33 @@ func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book
 }
 
 // Todo return []schemas.Book
-func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.ListBook, error) {
+func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.Book, error) {
 
 	var listBook []schemas.ListBook
+	var book schemas.Book
+	var books []schemas.Book
 	var list schemas.List
 
 	err := l.DB.Where("User_ID = ? AND Id = ?", userID, listID).Find(&list).Error
 
 	if err != nil {
-		return listBook, err
+		return books, err
 	}
 
 	err = l.DB.Find(&listBook, "list_ID = ?", list.ID).Error
 	if err != nil {
-		return listBook, err
+		return books, err
 	}
-	return listBook, err
+	for _, v := range listBook {
+		err := l.DB.Where("Id = ?", v.BookID).Find(&book).Error
+		if err != nil {
+			return books, err
+		}
+		books =	append(books,book)
+
+	}
+
+	return books, err
 }
 
 func (l *ListRepository) GetAllUserList(userID uint) (schemas.List, error) {

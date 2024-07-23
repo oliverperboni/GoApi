@@ -34,7 +34,7 @@ func (l *ListService) DeleteList(list *schemas.List) error {
 
 }
 
-func (l *ListService) GetAllBooksList(userID uint, listID uint) ([]schemas.ListBook, error) {
+func (l *ListService) GetAllBooksList(userID uint, listID uint) ([]schemas.Book, error) {
 	return l.repo.GetAllBooksList(userID, listID)
 }
 

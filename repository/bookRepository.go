@@ -16,7 +16,6 @@ func CreateBookRepository(db *gorm.DB) BookRepository {
 func (r *BookRepository) CreateBook(book *schemas.Book) error {
 	return r.DB.Create(book).Error
 }
-
 func (r *BookRepository) GetBookByID(id uint) (*schemas.Book, error) {
 	var book schemas.Book
 	err := r.DB.First(&book, "Id = ?", id).Error
