@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/oliverperboni/GoApi/schemas"
 	"github.com/oliverperboni/GoApi/services"
+	"github.com/oliverperboni/GoApi/utils"
 
 	"strconv"
 )
@@ -25,10 +26,14 @@ func (l *ListHandler) GetAllBookList(c *gin.Context) {
 	list, _ := strconv.Atoi(c.Query("listID"))
 	userID := uint(user)
 	listID := uint(list)
+	var booksJSON []schemas.BookJSON
 	books, err := l.service.GetAllBooksList(userID, listID)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
+	}
+	for _, v := range books {
+		booksJSON = append(booksJSON, utils.BookConvert(v))
 	}
 	c.JSON(http.StatusOK, books)
 }
@@ -46,6 +51,12 @@ func (l *ListHandler) GetBookList(c *gin.Context) {
 func (l *ListHandler) DeleteList(c *gin.Context) {
 	//delete a list
 	// input: list
+	var list schemas.List
+	if err := c.ShouldBindJSON(&list); err != nil {
+		// Handle JSON binding error
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 }
 
