@@ -38,6 +38,6 @@ func (l *ListService) GetAllBooksList(userID uint, listID uint) ([]schemas.Book,
 	return l.repo.GetAllBooksList(userID, listID)
 }
 
-func (l *ListService) GetAllUserList(userID uint) (schemas.List, error) {
+func (l *ListService) GetAllUserList(userID uint) ([]schemas.List, error) {
 	return l.repo.GetAllUserList(userID)
 }

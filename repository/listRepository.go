@@ -76,15 +76,15 @@ func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.Bo
 		if err != nil {
 			return books, err
 		}
-		books =	append(books,book)
+		books = append(books, book)
 
 	}
 
 	return books, err
 }
 
-func (l *ListRepository) GetAllUserList(userID uint) (schemas.List, error) {
-	var list schemas.List
+func (l *ListRepository) GetAllUserList(userID uint) ([]schemas.List, error) {
+	var list []schemas.List
 	err := l.DB.Find(&list, "UserID = ?", userID).Error
 	return list, err
 }
