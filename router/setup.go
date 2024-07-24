@@ -23,6 +23,7 @@ func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
 
 	//* recebe uma list
 	v.POST("/lists", h.PostList)
+
 	//* recebe um bookID e listID
 	v.POST("/lists/AddBook", h.PostBookList)
 

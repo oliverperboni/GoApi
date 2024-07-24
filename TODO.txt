@@ -1,6 +1,5 @@
 Repo da list:
-   criar os handlers e ver se esta funcionando
-
+   nos acessos a base de dados colocar os _ entre as palavras !!!
 
 
 

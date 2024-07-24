@@ -10,6 +10,8 @@ import (
 	"github.com/oliverperboni/GoApi/utils"
 )
 
+//TODO quando criar e dar update alterar o time !!!
+
 type BookHadler struct {
 	service services.BookService
 }

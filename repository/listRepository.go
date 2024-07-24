@@ -39,7 +39,7 @@ func (l *ListRepository) RemoveBookToList(bookID uint, listID uint) error {
 func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book, error) {
 	var listbook schemas.ListBook
 	var book schemas.Book
-	err := l.DB.Where("BookID = ? AND ListID = ?", bookID, listID).Find(&listbook).Error
+	err := l.DB.Where("Book_ID = ? AND List_ID = ?", bookID, listID).Find(&listbook).Error
 	if err != nil {
 		return book, err
 	}
@@ -85,7 +85,7 @@ func (l *ListRepository) GetAllBooksList(userID uint, listID uint) ([]schemas.Bo
 
 func (l *ListRepository) GetAllUserList(userID uint) ([]schemas.List, error) {
 	var list []schemas.List
-	err := l.DB.Find(&list, "UserID = ?", userID).Error
+	err := l.DB.Find(&list, "User_ID = ?", userID).Error
 	return list, err
 }
 
