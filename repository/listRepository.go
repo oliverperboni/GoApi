@@ -32,9 +32,14 @@ func (l *ListRepository) AddBookToList(bookID uint, listID uint) error {
 
 func (l *ListRepository) RemoveBookToList(bookID uint, listID uint) error {
 	var listbook schemas.ListBook
-	l.DB.Where("BookID = ? AND ListID = ?", bookID, listID).Find(&listbook)
+	l.DB.Where("Book_ID = ? AND List_ID = ?", bookID, listID).Find(&listbook)
 	return l.DB.Delete(listbook).Error
 }
+
+func (l *ListRepository) UpdateList(list *schemas.List) error  {
+	return l.DB.Save(list).Error
+}
+
 
 func (l *ListRepository) SeachBookToList(bookID uint, listID uint) (schemas.Book, error) {
 	var listbook schemas.ListBook
