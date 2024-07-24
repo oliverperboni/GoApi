@@ -2,13 +2,12 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/oliverperboni/GoApi/schemas"
 	"github.com/oliverperboni/GoApi/services"
 	"github.com/oliverperboni/GoApi/utils"
-
-	"strconv"
 )
 
 type ListHandler struct {
