@@ -1,5 +1,4 @@
 
-```markdown
 # Go API for Book and List Management
 
 This project is a RESTful API built with Go, utilizing the Gin framework, GORM for ORM, and designed to manage books and lists. It includes CRUD operations for books and lists, allowing for the creation, retrieval, updating, and deletion of these entities.
