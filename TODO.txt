@@ -1,7 +1,5 @@
 Repo da list:
-   nos acessos a base de dados colocar os _ entre as palavras !!!
-
-atualizar list, um endpoint PUT para tal.
+  atualizar list, um endpoint PUT para tal.
 
 User:
     login endpoint

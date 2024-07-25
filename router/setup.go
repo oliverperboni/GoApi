@@ -5,6 +5,30 @@ import (
 	"github.com/oliverperboni/GoApi/handler"
 )
 
+// Routes:
+//
+//   - GET /book: Calls h.GetBook to retrieve all books.
+//     Response: 200 OK with a list of books in JSON format, or 400 Bad Request if there's an error.
+//
+//   - GET /book/id/:id: Calls h.GetBookById to retrieve a specific book by its ID.
+//     Expected Input: `id` as a URL parameter.
+//     Response: 200 OK with the book in JSON format, or 400 Bad Request if the book is not found.
+//
+//   - GET /book/name/:name: Calls h.GetBookByName to retrieve a specific book by its name.
+//     Expected Input: `name` as a URL parameter.
+//     Response: 200 OK with the book in JSON format, or 400 Bad Request if the book is not found.
+//
+//   - POST /book: Calls h.PostBook to create a new book.
+//     Expected Input: Book data in the request body as JSON.
+//     Response: 200 OK with a success message, or 400 Bad Request/500 Internal Server Error if there's an error.
+//
+//   - PUT /book: Calls h.PutBook to update an existing book.
+//     Expected Input: Updated book data in the request body as JSON.
+//     Response: 200 OK with a success message, or 400 Bad Request/500 Internal Server Error if there's an error.
+//
+//   - DELETE /book: Calls h.DeleteBook to delete a specific book.
+//     Expected Input: Book data in the request body as JSON.
+//     Response: 200 OK with a success message, or 400 Bad Request/500 Internal Server Error if there's an error.
 func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 	v.GET("/book", h.GetBook)
 
@@ -19,26 +43,46 @@ func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 	v.DELETE("/book", h.DeleteBook)
 }
 
+//   - POST /lists: Calls h.PostList to create a new list.
+//     Expected Input: List data in the request body as JSON.
+//     Response: 200 OK if the list is created successfully, otherwise an error response.
+//
+//   - POST /lists/AddBook: Calls h.PostBookList to add a book to a specific list.
+//     Expected Input: `bookID` and `listID` as query parameters.
+//     Response: 200 OK if the book is added successfully, otherwise an error response.
+//
+//   - DELETE /lists: Calls h.DeleteList to delete a specific list.
+//     Expected Input: List data in the request body as JSON.
+//     Response: 200 OK if the list is deleted successfully, otherwise an error response.
+//
+//   - DELETE /list/book/: Calls h.DeleteBookList to remove a book from a specific list.
+//     Expected Input: `bookID` and `listID` as query parameters.
+//     Response: 200 OK if the book is removed successfully, otherwise an error response.
+//
+//   - GET /list/book: Calls h.GetBookList to search for a specific book in a list.
+//     Expected Input: `bookID` and `listID` as query parameters.
+//     Response: 200 OK with book details if found, otherwise 404 Not Found.
+//
+//   - GET /list/user: Calls h.GetAllUserList to retrieve all lists for a specific user.
+//     Expected Input: `userID` as a query parameter.
+//     Response: 200 OK with a list of user lists, otherwise 400 Bad Request.
+//
+//   - GET /list/allBooks: Calls h.GetAllBookList to retrieve all books from a specific list for a user.
+//     Expected Input: `userID` and `listID` as query parameters.
+//     Response: 200 OK with a list of books in JSON format, otherwise 400 Bad Request.
 func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
 
-	//* recebe uma list
 	v.POST("/lists", h.PostList)
 
-	//* recebe um bookID e listID
 	v.POST("/lists/AddBook", h.PostBookList)
 
-	//* recebe uma list
 	v.DELETE("/lists", h.DeleteList)
 
-	//* recebe um bookID e listID
-	v.DELETE("/list/:id/book/:id", h.DeleteBookList)
+	v.DELETE("/list/book/", h.DeleteBookList)
 
-	//* recebe um bookID e listID
 	v.GET("/list/book", h.GetBookList)
 
-	//* recebe um userID e um listID
 	v.GET("/list/user", h.GetAllUserList)
 
-	//* recebe um userID e um listID
 	v.GET("/list/allBooks", h.GetAllBookList)
 }
