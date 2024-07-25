@@ -28,7 +28,7 @@ This project is a RESTful API built with Go, utilizing the Gin framework, GORM f
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/GoApi.git
+   git clone https://github.com/oliverperboni/GoTomekeeper.git
    cd GoApi
    ```
 
@@ -311,24 +311,7 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any questions or issues, please contact [your email](mailto:your.email@example.com).
-
----
 
 Happy coding!
 ```
 
-### Summary:
-
-- **Project Overview**: Provides a brief introduction to the project's functionality.
-- **Features**: Lists the key features of the API.
-- **Prerequisites**: Details the necessary software and libraries.
-- **Installation**: Step-by-step instructions on how to set up and run the project.
-- **API Endpoints**: Documents all available API endpoints, including methods, request bodies, and responses.
-- **Contributing**: Encourages contributions and explains how to contribute.
-- **License**: Information about the project's licensing.
-- **Contact**: Provides contact information for further inquiries.
-
-This README should provide a comprehensive overview and guide for developers working with or contributing to this project.
