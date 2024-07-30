@@ -7,20 +7,20 @@
   - [X] Atribuir informações aos livros (título, autor, gênero, data de publicação, sinopse)
   - [X] Marcar livros como lidos, não lidos, ou em leitura
 
-- [ ] Visualização de Livros
-  - [ ] Exibir livros em uma lista
-  - [ ] Exibir livros em visualização de grade
-  - [ ] Filtrar livros por título
-  - [ ] Filtrar livros por autor
-  - [ ] Filtrar livros por gênero
-  - [ ] Filtrar livros por status de leitura
-  - [ ] Ordenar livros por título
-  - [ ] Ordenar livros por autor
-  - [ ] Ordenar livros por gênero
-  - [ ] Ordenar livros por status de leitura
-  - [ ] Pesquisar livros por palavras-chave
+- [X] Visualização de Livros
+  - [X] Exibir livros em uma lista
+  - [X] Exibir livros em visualização de grade
+  - [X] Filtrar livros por título
+  - [X] Filtrar livros por autor
+  - [X] Filtrar livros por gênero
+  - [X] Filtrar livros por status de leitura
+  - [X] Ordenar livros por título
+  - [X] Ordenar livros por autor
+  - [X] Ordenar livros por gênero
+  - [X] Ordenar livros por status de leitura
+  - [X] Pesquisar livros por palavras-chave
 
-- [ ] Detalhes do Livro
+- [] Detalhes do Livro
   - [ ] Exibir detalhes completos do livro selecionado
   - [ ] Exibir capa do livro
   - [ ] Permitir adição de notas pessoais

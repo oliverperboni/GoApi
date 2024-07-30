@@ -12,5 +12,7 @@ func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandl
 		setupBookRoutes(v1, h)
 
 		setupListRoutes(v1, l)
+
+		setupReviewRoutes(v1, rev)
 	}
 }
