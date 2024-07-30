@@ -9,6 +9,10 @@ type ReviewService struct {
 	repo repository.ReviewRepository
 }
 
+func CreateReviewService(r repository.ReviewRepository) ReviewService {
+	return ReviewService{repo: r}
+}
+
 func (r *ReviewService) CreateReview(review *schemas.Review) error {
 	return r.CreateReview(review)
 }
