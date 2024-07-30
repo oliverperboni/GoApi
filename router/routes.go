@@ -5,7 +5,7 @@ import (
 	"github.com/oliverperboni/GoApi/handler"
 )
 
-func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler) {
+func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler, rev *handler.ReviewHandler) {
 
 	v1 := r.Group("/api/v1/")
 	{

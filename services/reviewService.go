@@ -14,17 +14,17 @@ func CreateReviewService(r repository.ReviewRepository) ReviewService {
 }
 
 func (r *ReviewService) CreateReview(review *schemas.Review) error {
-	return r.CreateReview(review)
+	return r.repo.CreateReview(review)
 }
 
 func (r *ReviewService) UpdateReview(review *schemas.Review) error {
-	return r.UpdateReview(review)
+	return r.repo.UpdateReview(review)
 }
 
 func (r *ReviewService) DeleteReview(id uint) error {
-	return r.DeleteReview(id)
+	return r.repo.DeleteReview(id)
 }
 
 func (r *ReviewService) ReadReviewByBook(bookID uint) ([]schemas.Review, error) {
-	return r.ReadReviewByBook(bookID)
+	return r.repo.ReadReviewByBook(bookID)
 }

@@ -86,3 +86,32 @@ func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
 
 	v.GET("/list/allBooks", h.GetAllBookList)
 }
+
+// setupReviewRoutes initializes the routes for review-related endpoints.
+//
+// Parameters:
+// - v: a router group from Gin where the routes will be added. Typically, this might be a versioned group such as "v1".
+// - h: an instance of ReviewHandler that contains the handler methods for the review endpoints.
+func setupReviewRoutes(v *gin.RouterGroup, h *handler.ReviewHandler) {
+
+	// GET endpoint to fetch reviews for a specific book.
+	// The book ID is provided as a URL parameter.
+	// Example request: GET /books/1/reviews
+	v.GET("/books/:book_id/reviews", h.GetBookReview)
+
+	// POST endpoint to create a new review.
+	// The review data is provided in the request body.
+	// Example request: POST /reviews
+	v.POST("/reviews", h.PostBookReview)
+
+	// DELETE endpoint to delete a review.
+	// The review ID is provided as a URL parameter.
+	// Example request: DELETE /reviews/1
+	v.DELETE("/reviews/:review_id", h.DeleteBookReview)
+
+	// PUT endpoint to update an existing review.
+	// The review ID is provided as a URL parameter, and the updated review data is provided in the request body.
+	// Example request: PUT /reviews/1
+	v.PUT("/reviews/:review_id", h.PutBookReview)
+
+}
