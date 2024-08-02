@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/oliverperboni/GoApi/config"
-	"github.com/oliverperboni/GoApi/handler"
-	"github.com/oliverperboni/GoApi/repository"
-	"github.com/oliverperboni/GoApi/router"
-	"github.com/oliverperboni/GoApi/services"
+	"github.com/oliverperboni/GoTomekeeper/config"
+	"github.com/oliverperboni/GoTomekeeper/handler"
+	"github.com/oliverperboni/GoTomekeeper/repository"
+	"github.com/oliverperboni/GoTomekeeper/router"
+	"github.com/oliverperboni/GoTomekeeper/services"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/oliverperboni/GoApi/handler"
+	"github.com/oliverperboni/GoTomekeeper/handler"
 )
 
 func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler, rev *handler.ReviewHandler) {

@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/oliverperboni/GoApi/schemas"
+	"github.com/oliverperboni/GoTomekeeper/schemas"
 	"gorm.io/gorm"
 )
 

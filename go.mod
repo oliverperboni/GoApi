@@ -1,4 +1,4 @@
-module github.com/oliverperboni/GoApi
+module github.com/oliverperboni/GoTomekeeper
 
 go 1.22.5
 

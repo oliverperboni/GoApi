@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/oliverperboni/GoApi/repository"
-	"github.com/oliverperboni/GoApi/schemas"
+	"github.com/oliverperboni/GoTomekeeper/repository"
+	"github.com/oliverperboni/GoTomekeeper/schemas"
 )
 
 type ListService struct {

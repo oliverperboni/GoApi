@@ -1,6 +1,6 @@
 package utils
 
-import "github.com/oliverperboni/GoApi/schemas"
+import "github.com/oliverperboni/GoTomekeeper/schemas"
 
 func BookConvert(b schemas.Book) schemas.BookJSON {
 	return schemas.BookJSON{

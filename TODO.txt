@@ -1,5 +1,3 @@
-Repo da list:
-  atualizar list, um endpoint PUT para tal.
 
 User:
     login endpoint

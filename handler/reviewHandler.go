@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/oliverperboni/GoApi/schemas"
-	"github.com/oliverperboni/GoApi/services"
+	"github.com/oliverperboni/GoTomekeeper/schemas"
+	"github.com/oliverperboni/GoTomekeeper/services"
 )
 
 // ReviewHandler handles HTTP requests for review-related operations.

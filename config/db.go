@@ -15,8 +15,8 @@ func ConnectDatabase() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	//, &schemas.ListBook{}, &schemas.List{}, &schemas.ReadingStatistic{}, &schemas.Review{}, &schemas.User{}, &schemas.UserBook{})
-	//	db.AutoMigrate(&schemas.User{}, &schemas.Book{}, &schemas.UserBook{}, &schemas.List{}, &schemas.ListBook{}, &schemas.Review{}, &schemas.ReadingStatistic{})
+	//&schemas.ListBook{}, &schemas.List{}, &schemas.ReadingStatistic{}, &schemas.Review{}, &schemas.User{}, &schemas.UserBook{})
+	// db.AutoMigrate(&schemas.User{}, &schemas.Book{}, &schemas.UserBook{}, &schemas.List{}, &schemas.ListBook{}, &schemas.Review{}, &schemas.ReadingStatistic{})
 	// dummyUser := schemas.User{
 	// 	Username:     "dummyUser",
 	// 	Email:        "dummy@example.com",
