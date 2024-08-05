@@ -9,14 +9,14 @@ type UserService struct {
 	repo repository.UserRepository
 }
 
-func CreateUserService(r repository.UserRepository) UserService {
-	return UserService{repo: r}
+func CreateUserService(r repository.UserRepository) *UserService {
+	return &UserService{repo: r}
 }
 
 func (u *UserService) CreateUser(user schemas.User) error {
-	return u.repo.CreateUser(user)
+	return u.repo.CreateUser(&user) // Pass pointer to user
 }
 
-func (u *UserService) GetUser(username string, password string) error {
+func (u *UserService) GetUser(username string, password string) (*schemas.User, error) {
 	return u.repo.GetUser(username, password)
 }

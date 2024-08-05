@@ -1,7 +1,11 @@
 package handler
 
 import (
+	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
+	"github.com/oliverperboni/GoTomekeeper/schemas"
 	"github.com/oliverperboni/GoTomekeeper/services"
 )
 
@@ -9,15 +13,44 @@ type UserHandler struct {
 	serv services.UserService
 }
 
-func CreateUserHandler(s services.UserService) UserHandler {
-	return UserHandler{serv: s}
+func CreateUserHandler(s *services.UserService) UserHandler {
+	return UserHandler{serv: *s}
 }
 
 func (u *UserHandler) CreateUser(ctx *gin.Context) {
+	var user schemas.User
+	if err := ctx.ShouldBindJSON(&user); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
+	if err := u.serv.CreateUser(user); err != nil {
+		// Log the error for debugging purposes
+		fmt.Printf("Error creating user: %v\n", err)
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"msg": "User was created successfully",
+	})
 }
 
 func (u *UserHandler) GetUser(ctx *gin.Context) {
+	var user schemas.User
+	if err := ctx.ShouldBindJSON(&user); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	_, err := u.serv.GetUser(user.Username, user.PasswordHash)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"msg": "login done :)",
+	})
 
 }
 

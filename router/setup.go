@@ -115,3 +115,9 @@ func setupReviewRoutes(v *gin.RouterGroup, h *handler.ReviewHandler) {
 	v.PUT("/reviews/:review_id", h.PutBookReview)
 
 }
+
+func setupUserRoutes(v *gin.RouterGroup, h *handler.UserHandler) {
+	v.POST("/user", h.CreateUser)
+
+	v.GET("/user", h.GetUser)
+}

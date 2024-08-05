@@ -24,6 +24,10 @@ func main() {
 	bookService := services.CreateBookService(bookRepository)
 	bookHandler := handler.CreateBookHandler(bookService)
 
-	router.Initialize(&bookHandler, &listaHanlder, &reviewHandler)
+	userRepository := repository.CreateUserRepository(config.GetDB())
+	userService := services.CreateUserService(userRepository)
+	userHandler := handler.CreateUserHandler(userService)
+
+	router.Initialize(&bookHandler, &listaHanlder, &reviewHandler, &userHandler)
 
 }

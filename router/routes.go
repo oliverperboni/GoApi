@@ -5,7 +5,7 @@ import (
 	"github.com/oliverperboni/GoTomekeeper/handler"
 )
 
-func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler, rev *handler.ReviewHandler) {
+func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandler, rev *handler.ReviewHandler, u *handler.UserHandler) {
 
 	v1 := r.Group("/api/v1/")
 	{
@@ -14,5 +14,7 @@ func initializeRouter(r *gin.Engine, h *handler.BookHadler, l *handler.ListHandl
 		setupListRoutes(v1, l)
 
 		setupReviewRoutes(v1, rev)
+
+		setupUserRoutes(v1, u)
 	}
 }
