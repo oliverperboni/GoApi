@@ -3,6 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/oliverperboni/GoTomekeeper/handler"
+	"github.com/oliverperboni/GoTomekeeper/middleware"
 )
 
 // Routes:
@@ -36,7 +37,7 @@ func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 
 	v.GET("/book/name/:name", h.GetBookByName)
 
-	v.POST("/book", h.PostBook)
+	v.POST("/book", middleware.RequireAuth, h.PostBook)
 
 	v.PUT("/book", h.PutBook)
 

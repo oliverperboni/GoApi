@@ -17,6 +17,6 @@ func (u *UserService) CreateUser(user schemas.User) error {
 	return u.repo.CreateUser(&user) // Pass pointer to user
 }
 
-func (u *UserService) GetUser(username string, password string) (*schemas.User, error) {
-	return u.repo.GetUser(username, password)
+func (u *UserService) GetUser(username string) (*schemas.User, error) {
+	return u.repo.GetUser(username)
 }

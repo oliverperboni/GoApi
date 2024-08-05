@@ -17,9 +17,9 @@ func (u *UserRepository) CreateUser(user *schemas.User) error {
 	return u.DB.Save(user).Error
 }
 
-func (u *UserRepository) GetUser(username string, password string) (*schemas.User, error) {
+func (u *UserRepository) GetUser(username string) (*schemas.User, error) {
 	var user schemas.User
-	err := u.DB.Where("username = ? AND password_hash = ?", username, password).First(&user).Error
+	err := u.DB.Where("username = ?", username).First(&user).Error
 	if err != nil {
 		return nil, err
 	}
