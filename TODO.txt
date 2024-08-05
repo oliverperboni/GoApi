@@ -1,5 +1,5 @@
-
 User:
+    (Still to be implemented)
     login endpoint
     simple login
     jwt-token
