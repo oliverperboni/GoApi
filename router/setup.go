@@ -31,17 +31,17 @@ import (
 //     Expected Input: Book data in the request body as JSON.
 //     Response: 200 OK with a success message, or 400 Bad Request/500 Internal Server Error if there's an error.
 func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
-	v.GET("/book", h.GetBook)
+	v.GET("/book", middleware.RequireAuth, h.GetBook)
 
-	v.GET("/book/id/:id", h.GetBookById)
+	v.GET("/book/id/:id", middleware.RequireAuth, h.GetBookById)
 
-	v.GET("/book/name/:name", h.GetBookByName)
+	v.GET("/book/name/:name", middleware.RequireAuth, h.GetBookByName)
 
 	v.POST("/book", middleware.RequireAuth, h.PostBook)
 
-	v.PUT("/book", h.PutBook)
+	v.PUT("/book", middleware.RequireAuth, h.PutBook)
 
-	v.DELETE("/book", h.DeleteBook)
+	v.DELETE("/book", middleware.RequireAuth, h.DeleteBook)
 }
 
 //   - POST /lists: Calls h.PostList to create a new list.
@@ -73,19 +73,19 @@ func setupBookRoutes(v *gin.RouterGroup, h *handler.BookHadler) {
 //     Response: 200 OK with a list of books in JSON format, otherwise 400 Bad Request.
 func setupListRoutes(v *gin.RouterGroup, h *handler.ListHandler) {
 
-	v.POST("/lists", h.PostList)
+	v.POST("/lists", middleware.RequireAuth, h.PostList)
 
-	v.POST("/lists/AddBook", h.PostBookList)
+	v.POST("/lists/AddBook", middleware.RequireAuth, h.PostBookList)
 
-	v.DELETE("/lists", h.DeleteList)
+	v.DELETE("/lists", middleware.RequireAuth, h.DeleteList)
 
-	v.DELETE("/list/book/", h.DeleteBookList)
+	v.DELETE("/list/book/", middleware.RequireAuth, h.DeleteBookList)
 
-	v.GET("/list/book", h.GetBookList)
+	v.GET("/list/book", middleware.RequireAuth, h.GetBookList)
 
-	v.GET("/list/user", h.GetAllUserList)
+	v.GET("/list/user", middleware.RequireAuth, h.GetAllUserList)
 
-	v.GET("/list/allBooks", h.GetAllBookList)
+	v.GET("/list/allBooks", middleware.RequireAuth, h.GetAllBookList)
 }
 
 // setupReviewRoutes initializes the routes for review-related endpoints.
@@ -98,22 +98,22 @@ func setupReviewRoutes(v *gin.RouterGroup, h *handler.ReviewHandler) {
 	// GET endpoint to fetch reviews for a specific book.
 	// The book ID is provided as a URL parameter.
 	// Example request: GET /books/1/reviews
-	v.GET("/books/:book_id/reviews", h.GetBookReview)
+	v.GET("/books/:book_id/reviews", middleware.RequireAuth, h.GetBookReview)
 
 	// POST endpoint to create a new review.
 	// The review data is provided in the request body.
 	// Example request: POST /reviews
-	v.POST("/reviews", h.PostBookReview)
+	v.POST("/reviews", middleware.RequireAuth, h.PostBookReview)
 
 	// DELETE endpoint to delete a review.
 	// The review ID is provided as a URL parameter.
 	// Example request: DELETE /reviews/1
-	v.DELETE("/reviews/:review_id", h.DeleteBookReview)
+	v.DELETE("/reviews/:review_id", middleware.RequireAuth, h.DeleteBookReview)
 
 	// PUT endpoint to update an existing review.
 	// The review ID is provided as a URL parameter, and the updated review data is provided in the request body.
 	// Example request: PUT /reviews/1
-	v.PUT("/reviews/:review_id", h.PutBookReview)
+	v.PUT("/reviews/:review_id", middleware.RequireAuth, h.PutBookReview)
 
 }
 
